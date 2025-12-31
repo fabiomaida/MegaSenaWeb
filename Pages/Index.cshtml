@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Mega-Sena Sorteio";
+}
+
+<h2 style="color:darkgreen">💸 Sorteador da Mega-Sena 💸</h2>
+
+<form method="post" style="margin-bottom:20px;">
+    <label>Quantas apostas deseja fazer?</label>
+    <input type="number" name="Quantidade" value="1" min="1" />
+    <button type="submit" style="background-color:gold; color:darkgreen; font-weight:bold;">
+        Sortear 💰
+    </button>
+</form>
+
+@if (Model.Resultados.Any())
+{
+    <h3>Resultados:</h3>
+    <ul style="list-style-type:none; padding-left:0;">
+        @foreach (var resultado in Model.Resultados)
+        {
+            <li style="color:green; font-size:1.2em;">💵 @resultado 💵</li>
+        }
+    </ul>
+
+    <div style="margin-top: 20px; padding: 15px; border: 2px dashed gold; background-color:#f9f9f9;">
+        <p style="font-weight: bold; color: darkblue; font-size:1.3em;">💸💸 Boa sorte! 💸💸</p>
+        <p style="font-size: 0.9em; color: gray;">
+            Este programa foi desenvolvido para fins recreativos e não garante prêmios reais.
+        </p>
+        <p style="font-style: italic; color: darkgreen;">
+            Programador: Fábio Maida 💰
+        </p>
+    </div>
+}
